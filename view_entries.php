@@ -11,7 +11,11 @@
     <?php
     if (file_exists("guestbook.txt")) {
         $entries = file_get_contents("guestbook.txt");
-        echo nl2br(htmlspecialchars($entries));
+        $entriesArray = explode("---", $entries);
+        
+        foreach ($entriesArray as $entry) {
+            echo "<div class='entry'>" . nl2br(htmlspecialchars(trim($entry))) . "</div>";
+        }
     } else {
         echo "<p>No entries yet.</p>";
     }

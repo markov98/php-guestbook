@@ -12,3 +12,10 @@ form div {
     display: flex;
     flex-direction: column;
 }
+
+.entry {
+    border: 0.1em solid black;
+    border-radius: 1em;
+    padding: 1em;
+    margin-top: 1em;
+}
