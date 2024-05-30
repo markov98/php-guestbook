@@ -9,19 +9,24 @@
 <body>
     <h2>Guestbook Entries</h2>
     <?php
-    if (file_exists("guestbook.txt")) {
-        $entries = file_get_contents("guestbook.txt");
-        $entriesArray = explode("---", $entries);
-        
-        $entriesArray = array_filter($entriesArray, function($entry) {
-            return trim($entry) !== '';
-        });
-        
-        foreach ($entriesArray as $entry) {
-            echo "<div class='entry'>" . nl2br(htmlspecialchars(trim($entry))) . "</div><br>";
+    $file_path = "guestbook.json";
+    if (file_exists($file_path)) {
+        $json_data = file_get_contents($file_path);
+        $entries = json_decode($json_data, true);
+
+        if (!empty($entries)) {
+            foreach ($entries as $entry) {
+                echo '<div class="entry">';
+                echo '<p>Name: ' . htmlspecialchars($entry['name']) . '</p>';
+                echo '<p>Email: ' . htmlspecialchars($entry['email']) . '</p>';
+                echo '<p>Massage: ' . htmlspecialchars($entry['message']) . '</p>';
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No entries yet.</p>';
         }
     } else {
-        echo "<p>No entries yet.</p>";
+        echo '<p>No entries yet.</p>';
     }
     ?>
     <br>
