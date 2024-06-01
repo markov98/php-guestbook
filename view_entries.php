@@ -19,7 +19,7 @@
                 echo '<div class="entry">';
                 echo '<p>Name: ' . htmlspecialchars($entry['name']) . '</p>';
                 echo '<p>Email: ' . htmlspecialchars($entry['email']) . '</p>';
-                echo '<p>Massage: ' . htmlspecialchars($entry['message']) . '</p>';
+                echo '<p>Message: ' . htmlspecialchars($entry['message']) . '</p>';
                 echo '</div>';
             }
         } else {
