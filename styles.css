@@ -2,7 +2,7 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-form, .entry {
+.add_entry, .entry {
     border: 0.1em solid black;
     border-radius: 1em;
     padding: 1em;
